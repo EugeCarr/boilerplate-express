@@ -10,6 +10,8 @@ app.get("/", function(req, res){
 
 app.use("/", function(req, res, next){
     console.log(`${req.method} ${req.path} - ${req.ip}`);
+    req.time = new Date().toString();
+    console.log(req.time);
     next()
 })
 
