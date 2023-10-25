@@ -14,7 +14,7 @@ app.use("/", function(req, res, next){
     next();
 })
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use("/", bodyParser.urlencoded({extended: false}));
 
 app.get("/now", function(req,res, next){
     req.time = new Date().toString();
@@ -57,9 +57,12 @@ app.get("/name", function(req, res){
     const {first, last} = req.query;
     console.log(`firstname: ${first} lastname: ${last}`)
     res.json({"name": `${first} ${last}`})
-}).post("/name", function(req, res){
+})
+
+app.post("/name", function(req, res){
     const {first, last} = req.body;
     console.log(req.body);
+    console.log(req.urlencoded_body);
     console.log(`firstname: ${first} lastname: ${last}`)
     res.json({"name": `${first} ${last}`})
 })
