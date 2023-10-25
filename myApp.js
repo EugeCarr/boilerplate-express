@@ -10,7 +10,6 @@ app.get("/", function(req, res){
 
 app.use("/", function(req, res){
     console.log(`${req.method} ${req.path} - ${req.ip}`);
-    res.send()
 })
 
 app.get("/now", function(req,res, next){
