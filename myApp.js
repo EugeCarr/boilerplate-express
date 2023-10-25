@@ -53,7 +53,7 @@ app.get("/:word/echo", function(req, res){
 app.get("/name", function(req, res){
     const {first, last} = req.query;
     console.log(`firstname: ${first} lastname: ${last}`)
-    res.send("Success")
+    res.json({"name": `${first} ${last}`})
 })
 
 
