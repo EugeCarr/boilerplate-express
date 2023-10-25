@@ -15,12 +15,8 @@ app.use("/", function(req, res){
 
 app.get("/now", function(req,res, next){
     req.time = new Date().toString();
-    next()
+    next();
 }, function(req,res){
-    console.log(req.time);
-    console.log({
-        "time": req.time
-    })
     res.json({
         "time": req.time
     })
