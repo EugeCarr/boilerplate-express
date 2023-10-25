@@ -9,7 +9,7 @@ app.get("/", function(req, res){
 })
 
 app.get("/json", function(req, res){
-    let responseMessage = "hello json";
+    let responseMessage = "Hello json";
 
     console.log({
         messageStyle: process.env.MESSAGE_STYLE,
@@ -23,7 +23,7 @@ app.get("/json", function(req, res){
     }else{
         console.log("lower")
         res.json({
-            "message": responseMessage.toLowerCase()
+            "message": responseMessage
         })
     }
     
