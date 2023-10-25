@@ -8,8 +8,9 @@ app.get("/", function(req, res){
     res.sendFile(__dirname + '/views/index.html')
 })
 
-app.use("/", function(req, res){
+app.use("/", function(req, res, next){
     console.log(`${req.method} ${req.path} - ${req.ip}`);
+    next();
 })
 
 app.get("/now", function(req,res){
