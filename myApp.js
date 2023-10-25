@@ -1,6 +1,7 @@
 let express = require('express');
 let app = express();
-require('dotenv').config()
+require('dotenv').config();
+let bodyParser = require('body-parser');
 
 app.use('/public', express.static(__dirname + '/public'))
 
@@ -12,6 +13,8 @@ app.use("/", function(req, res, next){
     console.log(`${req.method} ${req.path} - ${req.ip}`);
     next();
 })
+
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.get("/now", function(req,res, next){
     req.time = new Date().toString();
@@ -54,7 +57,7 @@ app.get("/name", function(req, res){
     const {first, last} = req.query;
     console.log(`firstname: ${first} lastname: ${last}`)
     res.json({"name": `${first} ${last}`})
-})
+}).post()
 
 
 
