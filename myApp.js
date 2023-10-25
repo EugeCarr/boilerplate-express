@@ -15,8 +15,10 @@ app.use("/", function(req, res){
 
 app.get("/now", function(req,res, next){
     req.time = new Date().toString();
+    console.log("first")
     next();
 }, function(req,res){
+    console.log("second")
     res.json({
         "time": req.time
     })
