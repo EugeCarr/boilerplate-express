@@ -12,16 +12,14 @@ app.use("/", function(req, res){
     console.log(`${req.method} ${req.path} - ${req.ip}`);
 })
 
-app.get("/now", function(req,res, next){
+app.get("/now", function(req,res){
     req.time = new Date().toString();
     console.log("first")
-    next();
-}, function(req,res){
-    console.log("second")
     res.json({
         "time": req.time
     })
-})
+}
+)
 
 
 app.get("/json", function(req, res){
