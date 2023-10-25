@@ -20,6 +20,9 @@ app.get("/now", function(req,res, next){
 
 app.get("/now", function(req,res){
     console.log(req.time);
+    console.log({
+        "time": req.time
+    })
     res.json({
         "time": req.time
     })
