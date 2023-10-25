@@ -16,9 +16,7 @@ app.use("/", function(req, res){
 app.get("/now", function(req,res, next){
     req.time = new Date().toString();
     next()
-})
-
-app.get("/now", function(req,res){
+}, function(req,res){
     console.log(req.time);
     console.log({
         "time": req.time
@@ -27,6 +25,7 @@ app.get("/now", function(req,res){
         "time": req.time
     })
 })
+
 
 app.get("/json", function(req, res){
     let responseMessage = "Hello json";
